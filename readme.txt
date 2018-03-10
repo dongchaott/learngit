@@ -26,4 +26,5 @@
 	git reset —-hard HEAD^(回到上个版本)
 	git reset —-hard HEAD^^(回到上上个版本)
 	git reset —-hard HEAD~100(回到前100个版本)
+	git reset —-hard <commit id>(回到指定版本)
 
