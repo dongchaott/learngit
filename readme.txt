@@ -31,16 +31,18 @@
 
 10.文件操作
 	输入前半部分内容按tab快捷打出全称
+	touch <file>新建txt文件
 	open <file>打开文件
 	vi <file>进入编辑
 	:wq+enter退出编辑
+	rm <file>删除
 
 11.撤销修改
 	git checkout -- <file>丢弃工作区的修改
 	git reset HEAD <file>把暂存区的修改回退到工作区
 
-
-
-
+12.删除文件
+	git rm <file>删除版本库中文件
+	git checkout -- <file>版本库版本替换工作区版本，“一键还原”
 
 
