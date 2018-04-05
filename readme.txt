@@ -54,6 +54,23 @@
 16.回滚
 
 17.提交无需密码
+	git config –global credential.helper osxkeychain
+	如果不能执行,请先安装:
+	$ git credential-osxkeychain
+	# Test for the cred helper
+  	git: 'credential-osxkeychain' is not a git command. See 'git --help'.
+	$ curl -s -O \
+  	https://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+	#Download the helper
+	$ chmod u+x git-credential-osxkeychain
+	# Fix the permissions on the file so it can be run
+	$ sudo mv git-credential-osxkeychain \
+  	"$(dirname $(which git))/git-credential-osxkeychain"
+	# Move the helper to the path where git is installed
+  	Password: [enter your password]
+	$  git config --global credential.helper osxkeychain
+	# Set git to use the osxkeychain credential helper
 
 18.再试一次吧
+	链接：https://blog.csdn.net/ssrrxx111/article/details/51384189
 
