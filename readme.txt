@@ -74,4 +74,33 @@
 18.再试一次吧
 	链接：https://blog.csdn.net/ssrrxx111/article/details/51384189
 
-19。回滚版本
+19.回滚版本
+
+20.回到顶部
+    methods: {
+      stopScrollAnimate() {
+        if (!this.isStop) {
+          clearInterval(this.timer);
+          window.removeEventListener('scroll', this.stopScrollAnimate)
+        }
+        this.isStop = false
+      },
+      returnTOp() {
+        var vm = this
+        this.timer = setInterval(function () {
+          window.addEventListener('scroll', vm.stopScrollAnimate)
+          var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+          var ispeed = Math.floor(-osTop / 7);
+          document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+          if (osTop == 0) {
+            clearInterval(vm.timer);
+          }
+          vm.isStop = true
+        }, 1);
+      },
+    },
+    created() {
+      this.initPage();
+      this.returnTOp();
+    }
+
