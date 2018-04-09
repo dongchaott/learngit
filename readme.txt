@@ -110,3 +110,6 @@
 
 23.小虫前端开发规范
 	https://github.com/moyea/code-style
+
+24.请求地址
+	http://api-shop.hc.top
