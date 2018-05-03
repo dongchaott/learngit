@@ -9,29 +9,31 @@
       </el-col>
     </el-row>
     <div class="echarts-container" id="container"></div>
+
   </div>
 </template>
 
 <script>
-  var echarts = require('echarts');
+  let echarts = require('echarts');
     export default {
       data() {
        return {
          date: '',
-         value: 0
+         value: 0,
+         xAxisData: [],
+         yAxisData: [],
+         myChart: null,
        }
       },
       methods: {
         init() {
           let that = this;
-          let dom = document.getElementById("container");
-          let myChart = echarts.init(dom);
-          let date = [];
-          let data = [Math.round((Math.random() + 0.5) * 20)];
+          that.myChart = echarts.init(document.getElementById("container"));
+          // that.yAxisData = [Math.round((Math.random() + 0.5) * 20)];
 
           for (let i = 0; i < 24; i++) {
-            date.push(i + ':00');
-            data.push(Math.round((Math.random() + 0.5) * 20));
+            that.xAxisData.push(i + ':00');
+            that.yAxisData.push(Math.round((Math.random() + 0.5) * 20));
           }
           let option = {
             tooltip: {
@@ -56,7 +58,7 @@
               },
               type: 'category',
               boundaryGap: [30, 30],  //留白
-              data: date,
+              data: that.xAxisData,
               axisLabel: {
                 interval: 0,
                 // formatter: function (value, index) {
@@ -88,7 +90,7 @@
             series: [
               {
                 type:'line',
-                data: data,
+                data: that.yAxisData,
                 smooth:true,
                 symbol: 'none',
                 sampling: 'average',
@@ -112,12 +114,29 @@
             ]
           };
           if (option && typeof option === "object") {
-            myChart.setOption(option, true);
+            that.myChart.setOption(option, true);
           }
+        },
+        addData() {
+          this.xAxisData.push('24:00','25:00','26:00','27:00','28:00');
+          this.yAxisData.push(24,25,26,27,28);
+          let that = this;
+          this.myChart.setOption({
+            xAxis: {
+              data: that.xAxisData
+            },
+            series: [{
+              data: that.yAxisData
+            }]
+          });
         },
       },
       mounted() {
+        let that = this;
         this.init();
+        setTimeout(function () {
+          that.addData();
+        },3000)
       },
     };
 </script>

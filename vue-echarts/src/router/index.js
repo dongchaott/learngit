@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import Home from '@/components/home';
 import EchartsArea from '@/components/echarts-area';
 import EchartsAreaHover from '@/components/echarts-area-hover';
 import EchartsLineBar from '@/components/echarts-line-bar';
@@ -16,6 +17,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Home',
+      component: Home
+    },{
+      path: '/echarts-area',
       name: 'EchartsArea',
       component: EchartsArea
     },{

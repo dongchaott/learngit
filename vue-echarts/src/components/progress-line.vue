@@ -5,10 +5,10 @@
 </template>
 
 <script>
-  import '../assets/progress-line.js';
+  import '../assets/progress-line';
   export default {
     mounted() {
-      var instance = new percentCircle("myCanvas",{
+      var instance = new percentCircleLine("myCanvas",{
         colorArr:["#9210ff","#1995ff"],  //颜色值必须是两个，可以为相同颜色，也可以是渐变的两个色值
         colorBg:'#273b68', //半圆背景色 默认#ffffff
         linewidth:20,   //半圆的宽度

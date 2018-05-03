@@ -161,20 +161,6 @@
       this.ctx.stroke();
       this.ctx.restore();
     }
-
-
-    if(that.options.point.show){
-      var endPoint = (2-(that.options.startPoint/Math.PI-0.5)*2) *this.beginPersent - (2-that.options.startPoint/Math.PI);
-      var endPointX=this.width/2+(this.width/2-this.options.linewidth)*Math.cos(endPoint*Math.PI);
-      var endPointY=this.height/2+(this.width/2-this.options.linewidth)*Math.sin(endPoint*Math.PI);
-      this.ctx.save();
-      this.ctx.fillStyle = that.options.point.color;
-      this.ctx.beginPath();
-      this.ctx.arc(endPointX, endPointY, 10, 0, Math.PI * 2, true);
-      this.ctx.fill();
-      this.ctx.restore();
-    }
-
   };
 
   percentCircle.prototype.execAnimation = function(){

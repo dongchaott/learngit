@@ -28,10 +28,10 @@
               <i class="el-icon-menu"></i>
               <span slot="title">大盘强度</span>
             </el-menu-item>
-            <!--<el-menu-item index="7" @click="$router.push({path:'progress-line'})">-->
-              <!--<i class="el-icon-menu"></i>-->
-              <!--<span slot="title">诊断得分</span>-->
-            <!--</el-menu-item>-->
+            <el-menu-item index="7" @click="$router.push({path:'progress-line'})">
+              <i class="el-icon-menu"></i>
+              <span slot="title">诊断得分</span>
+            </el-menu-item>
           </el-menu>
         </div>
       </el-col>
